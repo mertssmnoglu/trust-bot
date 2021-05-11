@@ -1,0 +1,5 @@
+{
+    "token": "token",
+    "prefix": "prefix",
+    "owners": ["firstownerid","secondownerid"]
+}

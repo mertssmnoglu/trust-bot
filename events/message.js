@@ -7,6 +7,8 @@ module.exports = (client, message) => {
     if (caseSensitive) {
         if (client.commands.has(command)) {
             cmd = client.commands.get(command);
+        } else if (client.aliases.has(command)) {
+            cmd = client.commands.get(client.aliases.get(command));
         }
     } else {
         if (client.commands.has(command)) {

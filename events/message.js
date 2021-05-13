@@ -21,6 +21,21 @@ module.exports = (client, message) => {
             cmd = client.commands.get(client.aliases.get(command.toLowerCase()));
         }
     }
+
+    if (cmd.config.name == 'help') {
+        var commandsUsageList = []
+        client.commands.forEach(element => {
+            if (element.config.usage) {
+                var obj = {
+                    name: `${element.config.name}`,
+                    usage: `${element.config.usage}`
+                }
+                commandsUsageList.push(obj)
+            }
+        })
+        return cmd.run(client, message, args, commandsUsageList)
+    }
+
     if (cmd) {
         cmd.run(client, message, args)
     }

@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 
 module.exports.config = {
     name: "delete",
-    aliases: ["clear", "clean"]
+    aliases: ["clear", "clean"],
+    usage: "Deletes the specified amount of messages.",
+    owneronly: false
 }
 
 exports.run = (client, message, args) => {

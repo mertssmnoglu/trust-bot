@@ -1,3 +1,4 @@
+const config = require('../config.json');
 module.exports = (client, message) => {
     if (message.author.bot || message.content.indexOf(client.config.prefix) !== 0) return;
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
@@ -34,6 +35,10 @@ module.exports = (client, message) => {
             }
         })
         return cmd.run(client, message, args, commandsUsageList)
+    }
+
+    if (cmd.config.owneronly && !config.owners.includes(message.author.id)) {
+        return message.channel.send("This command is owner only.")
     }
 
     if (cmd) {

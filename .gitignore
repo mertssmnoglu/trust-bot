@@ -1,3 +1,4 @@
 /node_modules
 /package-lock.json
 /commands/private.js
+/config.json

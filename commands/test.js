@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 
 module.exports.config = {
     name: "test",
-    aliases: ["test-command"]
+    aliases: ["test-command"],
+    usage:"",
+    owneronly: true
 }
 
 exports.run = (client, message, args) => {

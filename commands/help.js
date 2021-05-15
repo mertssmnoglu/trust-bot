@@ -14,6 +14,7 @@ exports.run = (client, message, args, commandsUsageList) => {
     });
     var embed = new Discord.MessageEmbed()
         .setTitle("Help")
+        .setColor("#cf733e")
         .addField("Commands", helpmessage.join("\n"))
     message.channel.send(embed)
 }

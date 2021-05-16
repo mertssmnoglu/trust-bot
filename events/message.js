@@ -4,6 +4,7 @@ module.exports = (client, message) => {
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
     const command = args.shift();
     var caseSensitive = true
+    var withoutOwnerOnlyCommands = true
     let cmd;
     if (caseSensitive) {
         if (client.commands.has(command)) {
@@ -25,12 +26,18 @@ module.exports = (client, message) => {
 
     if (!cmd) {
         return
-    }
-    
-    else if (cmd.config.name == 'help') {
+    } else if (cmd.config.name == 'help') {
         var commandsUsageList = []
         client.commands.forEach(element => {
-            if (element.config.usage) {
+            if(!element.config.usage) return
+            else if (withoutOwnerOnlyCommands && element.config.owneronly) return
+            else if (!withoutOwnerOnlyCommands && element.config.owneronly) {
+                var obj = {
+                    name: `⭐ ${element.config.name}`,
+                    usage: `${element.config.usage}`
+                }
+                commandsUsageList.push(obj)
+            } else {
                 var obj = {
                     name: `${element.config.name}`,
                     usage: `${element.config.usage}`
@@ -39,13 +46,9 @@ module.exports = (client, message) => {
             }
         })
         return cmd.run(client, message, args, commandsUsageList)
-    }
-
-    else if (cmd.config.owneronly && !config.owners.includes(message.author.id)) {
+    } else if (cmd.config.owneronly && !config.owners.includes(message.author.id)) {
         return message.channel.send("This command is owner only.")
-    }
-
-    else if (cmd) {
+    } else if (cmd) {
         cmd.run(client, message, args)
     }
 };

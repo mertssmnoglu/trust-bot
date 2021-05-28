@@ -7,7 +7,7 @@ module.exports.config = {
     owneronly: true
 }
 
-exports.run = (client, message, args) => {
+exports.run = (client, config, message, args) => {
     var testMessage = "This is a test message. Everything is ok."
     message.channel.send(testMessage)
 }

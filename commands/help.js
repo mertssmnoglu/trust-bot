@@ -7,7 +7,7 @@ module.exports.config = {
     owneronly: false
 }
 
-exports.run = (client, message, args, commandsUsageList) => {
+exports.run = (client, config, message, args, commandsUsageList) => {
     var helpmessage = []
     commandsUsageList.forEach(helping => {
         helpmessage.push(`**${helping.name}** => ${helping.usage}`)

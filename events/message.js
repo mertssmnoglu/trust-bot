@@ -29,7 +29,7 @@ module.exports = (client, message) => {
     } else if (cmd.config.name == 'help') {
         var commandsUsageList = []
         client.commands.forEach(element => {
-            if(!element.config.usage) return
+            if (!element.config.usage) return
             else if (withoutOwnerOnlyCommands && element.config.owneronly) return
             else if (!withoutOwnerOnlyCommands && element.config.owneronly) {
                 var obj = {
@@ -45,10 +45,10 @@ module.exports = (client, message) => {
                 commandsUsageList.push(obj)
             }
         })
-        return cmd.run(client, message, args, commandsUsageList)
+        return cmd.run(client, config, message, args, commandsUsageList)
     } else if (cmd.config.owneronly && !config.owners.includes(message.author.id)) {
         return message.channel.send("This command is owner only.")
     } else if (cmd) {
-        cmd.run(client, message, args)
+        cmd.run(client, config, message, args)
     }
 };

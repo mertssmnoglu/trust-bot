@@ -7,7 +7,7 @@ module.exports.config = {
     owneronly: false
 }
 
-exports.run = (client, message, args) => {
+exports.run = (client, config, message, args) => {
     if (!message.member.hasPermission('MANAGE_MESSAGES')) {
         return message.channel.send(":warning: You can't use this command.")
     }

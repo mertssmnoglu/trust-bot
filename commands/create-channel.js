@@ -8,6 +8,8 @@ module.exports.config = {
 }
 
 exports.run = (client, config, message, args) => {
+    if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply(":warning: You can't use this command.")
+    else if (!message.guild.me.hasPermission('MANAGE_CHANNELS')) return message.channel.send(":warning: I can't create channel.")
     var options = ["text", "voice"]
     if (!args.length) {
         var embed = new Discord.MessageEmbed()

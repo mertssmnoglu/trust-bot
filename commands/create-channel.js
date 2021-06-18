@@ -21,14 +21,14 @@ exports.run = (client, config, message, args) => {
     } else {
         if (options.includes(args[0])) {
             switch (args[0]) {
-                case "text-channel":
+                case "text":
                     message.react("📙")
                     var channelname = args[1] ? args[1].toLowerCase() : "text-channel"
                     message.guild.channels.create(`${channelname}`, {
                         type: "text"
                     })
                     break;
-                case "voice-channel":
+                case "voice":
                     message.react("🔊")
                     var channelname = args[1] ? args[1] : "voice-channel"
                     message.guild.channels.create(`${channelname}`, {

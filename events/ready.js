@@ -4,16 +4,16 @@ module.exports = (client) => {
     console.log(onlineMessage);
     if (randomUserActivity) {
 
-        var randomTextes = [
+        var randomTexts = [
             "first text",
             "second text",
             "third text"
         ]
 
         const random = Math.floor(Math.random() * randomTextes.length);
-        client.user.setActivity(randomTextes[random])
+        client.user.setActivity(randomTexts[random])
         setInterval(function () {
-            client.user.setActivity(randomTextes[random])
+            client.user.setActivity(randomTexts[random])
         }, 20000);
     } else {
         client.user.setActivity(onlineMessage)

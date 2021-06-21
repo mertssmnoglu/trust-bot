@@ -1,12 +1,13 @@
 const config = require('../config.json');
 module.exports = (client, message) => {
+    // Settings
+    var caseSensitiveCommands = true
+    var withoutOwnerOnlyCommands = true
     if (message.author.bot || message.content.indexOf(client.config.prefix) !== 0) return;
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
     const command = args.shift();
-    var caseSensitive = true
-    var withoutOwnerOnlyCommands = true
     let cmd;
-    if (caseSensitive) {
+    if (caseSensitiveCommands) {
         if (client.commands.has(command)) {
             cmd = client.commands.get(command);
         } else if (client.aliases.has(command)) {

@@ -1,5 +1,8 @@
 {
     "token": "token",
     "prefix": "prefix",
-    "owners": ["firstownerid","secondownerid"]
+    "owners": ["firstownerid","secondownerid"],
+    "channels":{
+        "dmLog":"channelid"
+    }
 }

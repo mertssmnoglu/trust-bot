@@ -1,8 +1,41 @@
+const Discord = require("discord.js");
 const config = require('../config.json');
 module.exports = (client, message) => {
     // Settings
     var caseSensitiveCommands = true
     var withoutOwnerOnlyCommands = true
+    var dmLogStatus = false
+    if (dmLogStatus) {
+        if (message.channel.type === "dm") {
+            if (message.attachments.size == 0) {
+                const dmEmbed = new Discord.MessageEmbed()
+                    .setTitle("New DM")
+                    .setColor("#32d9cb")
+                    .addField(`User:`, `<@!${message.author.id}>`, true)
+                    .addField(`User Id:`, `${message.author.id}`, true)
+                    .addField(`Message:`, `${message.content}`, false)
+                    .setThumbnail(message.author.avatarURL())
+                    .setFooter(`${message.author.tag}`)
+                    .setTimestamp()
+                client.channels.cache.get(config.channels.dmLog).send(dmEmbed)
+            } else {
+                message.attachments.forEach(async (key) => {
+                    var dmEmbed = new Discord.MessageEmbed()
+                        .setTitle("New DM")
+                        .setColor("#32d9cb")
+                        .setImage(`${key.proxyURL}`)
+                        .addField(`User:`, `<@!${message.author.id}>`, true)
+                        .addField(`User Id:`, `${message.author.id}`, true)
+                        .addField(`Message:`, `${message.content == "" ? "Null": message.content}`, false)
+                        .addField("Document Link", `[Click Me](${key.proxyURL})`)
+                        .setThumbnail(message.author.avatarURL())
+                        .setFooter(`${message.author.tag}`)
+                        .setTimestamp()
+                    client.channels.cache.get(config.channels.dmLog).send(dmEmbed)
+                })
+            }
+        }
+    }
     if (message.author.bot || message.content.indexOf(client.config.prefix) !== 0) return;
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
     const command = args.shift();

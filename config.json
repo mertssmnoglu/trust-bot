@@ -1,8 +1,11 @@
 {
     "token": "token",
     "prefix": "prefix",
-    "owners": ["firstownerid","secondownerid"],
-    "channels":{
-        "dmLog":"channelid"
+    "owners": ["firstownerid", "secondownerid"],
+    "paths": {
+        "sqlite": "yourSqliteFilePath"
+    },
+    "channels": {
+        "dmLog": "channelid"
     }
 }

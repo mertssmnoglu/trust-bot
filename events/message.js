@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 const config = require('../config.json');
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database("yourDatabasePath");
 module.exports = (client, message) => {
     // Settings
     var caseSensitiveCommands = true
@@ -36,6 +38,11 @@ module.exports = (client, message) => {
             }
         }
     }
+    db.get(`SELECT * FROM auto_responses WHERE guild_id = "${message.guild.id}" AND trigger = "${message.content.toUpperCase()}"`, function (err, row) {
+        if(err) return console.log(err)
+        if(!row || message.author.bot) return
+        message.channel.send(row.response)
+    })
     if (message.author.bot || message.content.indexOf(client.config.prefix) !== 0) return;
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
     const command = args.shift();

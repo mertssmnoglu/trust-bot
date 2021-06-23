@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const config = require('../config.json');
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database("yourDatabasePath");
+var db = new sqlite3.Database(config.paths.sqlite);
 module.exports = (client, message) => {
     // Settings
     var caseSensitiveCommands = true

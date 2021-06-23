@@ -1,0 +1,28 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "Discord Bot with discord.js by mertssmnoglu",
+  "main": "main.js",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mertssmnoglu/discord-bot.git"
+  },
+  "keywords": [
+    "discord-bot",
+    "open-source"
+  ],
+  "author": "mertssmnoglu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mertssmnoglu/discord-bot/issues"
+  },
+  "homepage": "https://github.com/mertssmnoglu/discord-bot#readme"
+}

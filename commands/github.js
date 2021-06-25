@@ -3,7 +3,7 @@ const fetch = require('node-fetch')
 module.exports.config = {
     name: "github",
     aliases: ["github.com"],
-    usage: "Shows github profile.",
+    usage: "Shows github profile or repositories.",
     owneronly: false
 }
 

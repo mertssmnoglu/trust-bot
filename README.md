@@ -14,3 +14,7 @@ Command Name  |    Aliases   | Category
 `ping` | botping, bot-ping | User
 `slowmode` | slow-mode, timeout | **Moderation**
 `test` | test-command | _Owner Only_
+
+### Lisence
+
+MIT Lisenced. Read the lisence before use.

@@ -17,4 +17,4 @@ Command Name  |    Aliases   | Category
 
 ### License
 
-MIT Licensed. Read the Licensed before use.
+MIT Licensed. Read the License before use.

@@ -15,6 +15,6 @@ Command Name  |    Aliases   | Category
 `slowmode` | slow-mode, timeout | **Moderation**
 `test` | test-command | _Owner Only_
 
-### Licensed
+### License
 
 MIT Licensed. Read the Licensed before use.

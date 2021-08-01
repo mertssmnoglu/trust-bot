@@ -1,6 +1,6 @@
-# Discord Moderation & Fun Bot
+# Trust Bot
 
-Easy to use and advanced discord bot for moderation and fun.
+Trust Bot is easy to use and advanced discord bot for moderation and fun.
 
 ## Commands
 

@@ -41,6 +41,7 @@ exports.run = (client, config, message, args) => {
                 var repoName = args[0].split("/")[1]
                 var userUri = `https://api.github.com/users/${userName}`;
                 var userResult = encodeURI(userUri);
+                var userRepos = [];
                 fetch(userResult).then(userRes => userRes.json()).then(userRes => {
                     if (userRes.message == "Not Found") {
                         return message.channel.send(`\`${userName}\` is not an existing user.`)
@@ -49,6 +50,7 @@ exports.run = (client, config, message, args) => {
                         var repoResult = encodeURI(repoUri);
                         fetch(repoResult).then(repoRes => repoRes.json()).then(repoRes => {
                             repoRes.forEach(element => {
+                                userRepos.push(element.name)
                                 if (element.name == repoName) {
                                     let githubRepoEmbed = new Discord.MessageEmbed()
                                         .setTitle(userName)
@@ -59,11 +61,12 @@ exports.run = (client, config, message, args) => {
                                         .addField("Language", `${element.language}`)
                                         .setFooter("Github", "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")
                                     if (element.license) {
-                                        githubUserEmbed.addField("License", `${element.license.name}`)
+                                        githubRepoEmbed.addField("License", `${element.license.name}`)
                                     }
                                     message.channel.send(githubRepoEmbed)
                                 }
                             });
+                            if(!userRepos.includes(repoName)) return message.channel.send(`\`${userName}/${repoName}\` is not exist.`)
                         })
                     }
                 })

@@ -38,11 +38,13 @@ module.exports = (client, message) => {
             }
         }
     }
-    db.get(`SELECT * FROM auto_responses WHERE guild_id = "${message.guild.id}" AND trigger = "${message.content.toUpperCase()}"`, function (err, row) {
-        if(err) return console.log(err)
-        if(!row || message.author.bot) return
-        message.channel.send(row.response)
-    })
+    if(config.paths.sqlite !== ""){
+        db.get(`SELECT * FROM auto_responses WHERE guild_id = "${message.guild.id}" AND trigger = "${message.content.toUpperCase()}"`, function (err, row) {
+            if(err) return console.log(err)
+            if(!row || message.author.bot) return
+            message.channel.send(row.response)
+        })
+    }
     if (message.author.bot || message.content.indexOf(client.config.prefix) !== 0) return;
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
     const command = args.shift();

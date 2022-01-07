@@ -14,7 +14,7 @@ Command Name  |    Aliases   | Category
 `ping` | botping, bot-ping | User
 `slowmode` | slow-mode, timeout | **Moderation**
 `test` | test-command | _Owner Only_
-
+`uptime` | bot-uptime | User
 ### License
 
 MIT Licensed. Read the License before use.

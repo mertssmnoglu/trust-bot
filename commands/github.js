@@ -12,7 +12,7 @@ exports.run = (client, config, message, args) => {
         if (!args[0].includes("/")) {
             var processType = "profile"
         } else if (!args[0].includes("/") || args[0].split("/")[0] == '' || args[0].split("/")[1] == '') {
-            return message.channel.send("Profile: `username`\nRepository: `username/reponame`")
+            return message.channel.send("Please provide a vaild user or repo name.`")
         } else {
             var processType = "repository"
         }

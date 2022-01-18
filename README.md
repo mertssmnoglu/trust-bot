@@ -1,6 +1,6 @@
 # Trust Bot
 
-Trust Bot is easy to use and advanced discord bot for moderation and fun.
+Trust Bot is an easy to use multi purpose discord bot.
 
 ## Commands
 

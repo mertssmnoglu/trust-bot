@@ -16,5 +16,6 @@ exports.run = (client, config, message, args, commandsUsageList) => {
         .setTitle("Help")
         .setColor("#cf733e")
         .addField("Commands", helpmessage.join("\n"))
+        .setFooter(client.user.tag,client.user.avatarURL())
     message.channel.send(embed)
 }

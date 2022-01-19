@@ -27,6 +27,6 @@ exports.run = (client, config, message, args) => {
         .addField("✅ Online Members:", message.guild.members.cache.filter(member => member.presence.status !== "offline").size, true)
         .addField("❌ Offline Members:", message.guild.members.cache.filter(member => member.presence.status == "offline").size, true)
         .setTimestamp()
-        .setFooter(`Sunucu ID: ${message.guild.id}`);
+        .setFooter(`Server ID: ${message.guild.id}`);
         message.channel.send(embed)
 }

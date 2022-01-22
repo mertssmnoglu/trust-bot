@@ -17,6 +17,11 @@ Command Name  |    Aliases   | Category
 `slowmode` | slow-mode, timeout | **Moderation**
 `test` | test-command | _Owner Only_
 `uptime` | bot-uptime | User
+
+### Invite Link 
+
+[Click to add the Trust Bot to your Server](https://discord.com/api/oauth2/authorize?client_id=817056404618608650&permissions=8&scope=bot%20applications.commands)
+
 ### License
 
 MIT Licensed. Read the License before use.

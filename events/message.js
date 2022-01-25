@@ -39,9 +39,10 @@ module.exports = (client, message) => {
         }
     }
     if(config.paths.sqlite !== ""){
-        db.get(`SELECT * FROM auto_responses WHERE guild_id = "${message.guild.id}" AND trigger = "${message.content.toUpperCase()}"`, function (err, row) {
+        if(message.author.bot) return
+        db.get(`SELECT * FROM auto_responses WHERE guild_id = ${message.guild.id} AND trigger = "${message.content.toUpperCase().replace(/\'/g,"''").replace(/\"/g,"''")}"`, function (err, row) {
             if(err) return console.log(err)
-            if(!row || message.author.bot) return
+            if(!row) return
             message.channel.send(row.response)
         })
     }

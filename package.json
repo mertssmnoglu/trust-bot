@@ -1,29 +1,30 @@
 {
   "name": "discord-bot",
-  "version": "1.0.0",
-  "description": "Discord Bot with discord.js by mertssmnoglu",
+  "version": "1.1.0",
+  "description": "A Discord Bot made with discord.js by mertssmnoglu",
   "main": "main.js",
   "dependencies": {
     "discord.js": "^12.5.3",
-    "sqlite3": "^5.0.2",
+    "inquirer": "^8.2.1",
     "ws": "^7.5.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "node main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mertssmnoglu/discord-bot.git"
+    "url": "git+https://github.com/mertssmnoglu/trust-bot.git"
   },
   "keywords": [
     "discord-bot",
-    "open-source"
+    "open-source",
+    "discord",
+    "discord.js"
   ],
   "author": "mertssmnoglu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mertssmnoglu/discord-bot/issues"
+    "url": "https://github.com/mertssmnoglu/trust-bot/issues"
   },
-  "homepage": "https://github.com/mertssmnoglu/discord-bot#readme"
+  "homepage": "https://github.com/mertssmnoglu/trust-bot#readme"
 }

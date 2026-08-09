@@ -6,7 +6,7 @@
   "dependencies": {
     "discord.js": "^12.5.3",
     "inquirer": "^8.2.7",
-    "ws": "^7.5.10"
+    "ws": "^7.5.11"
   },
   "scripts": {
     "test": "node main.js"
